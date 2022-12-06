@@ -1,0 +1,13 @@
+# docker-compose.yaml
+
+version: "3"
+services:
+  web:
+    build:
+      context: . # set the build context
+      dockerfile: Dockerfile.dev # define the name of the Dockerfile inside the build context
+    ports:
+      - "3000:3000" # port forward
+    volumes:
+      - /app/node_modules # bookmark directory so it wont be synced with host file system
+      - .:/app # sync current directory with file system of the container
